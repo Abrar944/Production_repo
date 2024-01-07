@@ -1,0 +1,17 @@
+name: Push Approval Workflow
+
+on:
+  push:
+    branches:
+      - developer-branch
+
+jobs:
+  notify-team-lead:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify Team Lead
+        uses: actions/slack@v4 # or any other notification method
+        with:
+          status: 'Code Push Approval Needed'
+          text: 'The developer has pushed code to the developer branch. Approval is needed.'
