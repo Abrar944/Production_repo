@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Notify Team Lead
         run: |
-          GITHUB_TOKEN="${{ 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 }}"
+          GITHUB_TOKEN="${{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}}"
           PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
           COMMENT="The developer has pushed code to the developer branch. Approval is needed."
-          curl -sSL -H "Authorization: token $GITHUB_TOKEN" -X POST -d "{\"body\":\"$COMMENT\"}" "https://api.github.com/repos/${{ Production_repo }}/issues/${PR_NUMBER}/comments"
+          curl -sSL -H "Authorization: token $GITHUB_TOKEN" -X POST -d "{\"body\":\"$COMMENT\"}" "https://api.github.com/repos/${{Production_repo}}/issues/${PR_NUMBER}/comments"
 
